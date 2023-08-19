@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class Glovo {
@@ -36,6 +37,9 @@ public class Glovo {
         WebElement location = driver.findElement(By.xpath("//div[@data-test-id='address-input-placeholder']"));
         location.click();
 
+        String actual = driver.getTitle();
+        String expected = "Доставка на Glovo, България: храна, хранителни стоки, продукти от аптеката. Поръчайте онлайн сега.";
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -47,11 +51,5 @@ public class Glovo {
 
         WebElement location = driver.findElement(By.xpath("//div[@data-test-id='location-form-set-location']"));
         location.click();
-
-
     }
-
-
-
-
 }
